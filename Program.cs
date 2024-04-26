@@ -25,7 +25,7 @@ app.UseSwaggerUI(config => {
 
 app.MapGet("/users/{id}", (int id) => UserDB.GetUser(id));
 app.MapGet("/users/", () => UserDB.GetUsers());
-app.MapPost("/users", (User user) => UserDB.CreatePizza(user));
+app.MapPost("/users", (User user) => UserDB.CreateUser(user));
 app.MapPut("/users", (User user) => UserDB.UpdateUser(user));
 app.MapDelete("/users/{id}", (int id) => UserDB.RemoveUser(id));
 

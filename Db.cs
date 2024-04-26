@@ -39,7 +39,7 @@ public class UserDB
         return _users.SingleOrDefault(user => user.Id == id);
     }
 
-    public static User CreatePizza(User user) {
+    public static User CreateUser(User user) {
         _users.Add(user);
         return user;
     }
@@ -54,6 +54,6 @@ public class UserDB
         return update;
     }
     public static void RemoveUser(int id) {
-        _users = _users.FindAll(pizza => pizza.Id != id).ToList();
+        _users = _users.FindAll(user => user.Id != id).ToList();
     }
 }
