@@ -70,7 +70,15 @@ Now, you can run the project. Execute the following command:
 dotnet run
 ```
 
-The application will start, and you should see output indicating that it's running. By default, the application runs on `http://localhost:5000`.
+The application will start, and you should see output indicating that it's running. By default, the application runs on `http://localhost:5155`.
+
+**Note:** Check if the port on which the project is running becomes different from `5155` make sure to change it when making API calls you can check which port it is running on after running `dotnet run`.
+
+```
+Compiling...
+info: Microsoft.Hosting.Lifetime[14]
+    Now listening on: http://localhost:5155 <- Here
+```
 
 ## Step 7: Access the API
 
@@ -91,7 +99,7 @@ You can now access the API using your preferred tool (e.g., Postman, cURL, or a 
 To interact with the API, tools like Postman or cURL can be used. Below is an example of how to create a new user using cURL:
 
 ```bash
-curl -X POST http://localhost:5000/users \
+curl -X POST http://localhost:5155/users \
 -H "Content-Type: application/json" \
 -d '{
     "name": "John Doe",
@@ -102,4 +110,4 @@ curl -X POST http://localhost:5000/users \
 
 ## API Documentation
 
-The API documentation can be accessed through the Swagger UI interface at `http://localhost:5000/swagger`. Here, all available endpoints can be viewed, and tests can be performed directly from the browser.
+The API documentation can be accessed through the Swagger UI interface at `http://localhost:5155/swagger`. Here, all available endpoints can be viewed, and tests can be performed directly from the browser.
