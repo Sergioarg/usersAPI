@@ -24,15 +24,14 @@ var app = builder.Build();
 
 // Users Endpoints and Methods.
 var users = app.MapGroup("/users");
-users.MapGet("/", GetAllUsers); // GET: /users
-users.MapGet("/{id}", GetUser); // GET: /users/{id}
-users.MapPost("/", CreateUser); // PUT: /users
-users.MapPut("/{id}", UpdateUser);
-users.MapDelete("/{id}", DeleteUser);
+users.MapGet("/", GetAllUsers);      // GET:    /users
+users.MapGet("/{id}", GetUser);      // GET:    /users/{id}
+users.MapPost("/", CreateUser);      // POST:   /users
+users.MapPut("/{id}", UpdateUser);   // PUT:    /users/{id}
+users.MapDelete("/{id}", DeleteUser);// DELETE: /users/{id}
 app.MapGet("/", () => "Backend Developer Technical Test!");
 // Start App
 app.Run();
-
 
 static async Task<IResult> GetAllUsers(UserDb db)
 {
