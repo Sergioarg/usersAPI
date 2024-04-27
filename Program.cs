@@ -14,7 +14,7 @@ builder.Services.AddSwaggerGen(config => {
     config.SwaggerDoc("v1", new OpenApiInfo
     {
         Title = "Users API",
-        Description = "Get and manage users data",
+        Description = "User Management Service",
         Version = "v1"
     });
 });
@@ -68,6 +68,7 @@ app.MapDelete(UsersEnpoint + "/{id}", async (UserDb db, int id) => {
     return Results.Ok();
 });
 
-app.MapGet("/", () => "I'm alive!");
+app.MapGet("/", () => "Backend Developer Technical Test!");
 
+// Start App
 app.Run();
