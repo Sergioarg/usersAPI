@@ -1,6 +1,3 @@
-using Microsoft.EntityFrameworkCore;
-using UsersStore.DB;
-
 namespace UserStore.Models
 {
     public class User {
@@ -9,10 +6,4 @@ namespace UserStore.Models
         public DateOnly Birthdate { get; set; }
         public bool Active { get; set; }
     }
-}
-
-class UserDb : DbContext
-{
-    public UserDb(DbContextOptions options) : base(options) { }
-    public DbSet<User> Users { get; set; } = null!;
 }

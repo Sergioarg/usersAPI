@@ -1,7 +1,6 @@
-using System.Net.Http.Headers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using UsersStore.DB;
+using UserStore.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 // Config Swagger
