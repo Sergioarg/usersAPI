@@ -25,7 +25,7 @@ var app = builder.Build();
 // Users Endpoints and Methods.
 var users = app.MapGroup("/users");
 users.MapGet("/", GetAllUsers);      // GET:    /users
-users.MapGet("/{id}", GetUser);      // GET:    /users/{id}
+users.MapGet("/{id}", GetUserById);      // GET:    /users/{id}
 users.MapPost("/", CreateUser);      // POST:   /users
 users.MapPut("/{id}", UpdateUser);   // PUT:    /users/{id}
 users.MapDelete("/{id}", DeleteUser);// DELETE: /users/{id}
@@ -38,7 +38,7 @@ static async Task<IResult> GetAllUsers(UserDb db)
     return TypedResults.Ok(await db.Users.ToListAsync());
 }
 
-static async Task<IResult> GetUser(int id, UserDb db)
+static async Task<IResult> GetUserById(int id, UserDb db)
 {
     return await db.Users.FindAsync(id)
         is User user
