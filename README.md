@@ -72,14 +72,6 @@ dotnet run
 
 The application will start, and you should see output indicating that it's running. By default, the application runs on `http://localhost:5155`.
 
-**Note:** Check if the port on which the project is running becomes different from `5155` make sure to change it when making API calls you can check which port it is running on after running `dotnet run`.
-
-```
-Compiling...
-info: Microsoft.Hosting.Lifetime[14]
-    Now listening on: http://localhost:5155 <- Here
-```
-
 ## Step 7: Access the API
 
 You can now access the API using your preferred tool (e.g., Postman, cURL, or a web browser) to interact with the endpoints as documented in the API documentation.
