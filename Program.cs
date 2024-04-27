@@ -1,11 +1,12 @@
-using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi.Models;
 using UserStore.Models;
+using Microsoft.OpenApi.Models;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-// Config Swagger
+// Config Builder
+var connectionString = builder.Configuration.GetConnectionString("Users") ?? "Data Source=Users.db";
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddDbContext<UserDb>(options => options.UseInMemoryDatabase("items"));
+builder.Services.AddSqlite<UserDb>(connectionString);
 builder.Services.AddSwaggerGen(config => {
     config.SwaggerDoc("v1", new OpenApiInfo
     {
@@ -17,14 +18,10 @@ builder.Services.AddSwaggerGen(config => {
 
 var app = builder.Build();
 
-
-// Using Swagger
-string swaggerPath = "/swagger/v1/swagger.json";
-
 app.UseSwagger();
 app.UseSwaggerUI(config =>
 {
-    config.SwaggerEndpoint(swaggerPath, "Users API V1");
+    config.SwaggerEndpoint("/swagger/v1/swagger.json", "Users API V1");
 });
 
 // GET: /users

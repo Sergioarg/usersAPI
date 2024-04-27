@@ -12,3 +12,8 @@ obj/
 *.exe
 *.dll
 *.pdb
+
+# Data Bases
+*.db
+*.db-shm
+*.db-wal
