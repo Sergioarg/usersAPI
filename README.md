@@ -4,7 +4,7 @@
 
 This project is a user management service that allows for the creation, updating, deletion, and retrieval of user information. It is built on .NET Core and uses Entity Framework Core for data persistence. The API is documented with Swagger and can be accessed through the following endpoints.
 
-## Configuration
+<!-- ## Configuration
 
 To configure the project, the database connection string must be set in the `appsettings.json` or `appsettings.Development.json` file. The default connection string is `Data Source=Users.db`.
 
@@ -14,7 +14,7 @@ To configure the project, the database connection string must be set in the `app
     "Users": "Data Source=Users.db"
  }
 }
-```
+``` -->
 # Running the User Management Service Locally
 
 This guide will walk you through the process of cloning the User Management Service repository and running it on your local machine. This will allow you to interact with the API and test its functionalities.
