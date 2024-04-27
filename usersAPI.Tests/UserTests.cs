@@ -17,7 +17,5 @@ namespace UserStore.Tests
             Assert.Equal(DateOnly.MinValue, user.Birthdate);
             Assert.False(user.Active);
         }
-
-        // Puedes agregar más pruebas aquí para cubrir diferentes escenarios
     }
 }
