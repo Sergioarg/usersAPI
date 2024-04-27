@@ -23,22 +23,27 @@ builder.Services.AddSwaggerGen(config => {
 var app = builder.Build();
 
 app.UseSwagger();
-app.UseSwaggerUI(config =>
-{
-    config.SwaggerEndpoint("/swagger/v1/swagger.json", "Users API V1");
+app.UseSwaggerUI(config => {
+    config.SwaggerEndpoint(
+        "/swagger/v1/swagger.json",
+        "Users API V1"
+    );
 });
 
-
-// Users Endpoints and methods.
-const string UsersEnpoint = "/users";
+// Users Endpoints and Methods.
+var users = app.MapGroup("/users");
 // GET: /users
-app.MapGet(UsersEnpoint, async (UserDb db) => await db.Users.ToListAsync());
+users.MapGet("/", async (UserDb db) =>
+    await db.Users.ToListAsync()
+);
 
 // GET: /users/{id}
-app.MapGet(UsersEnpoint + "/{id}", async (UserDb db, int id) => await db.Users.FindAsync(id));
+users.MapGet("/{id}", async (UserDb db, int id) =>
+    await db.Users.FindAsync(id)
+);
 
 // POST: /users
-app.MapPost(UsersEnpoint, async (UserDb db, User user) =>
+users.MapPost("/", async (UserDb db, User user) =>
 {
     await db.Users.AddAsync(user);
     await db.SaveChangesAsync();
@@ -46,7 +51,7 @@ app.MapPost(UsersEnpoint, async (UserDb db, User user) =>
 });
 
 // PUT: /users/{id}
-app.MapPut(UsersEnpoint + "/{id}", async (UserDb db, User updateuser, int id) =>
+users.MapPut("/{id}", async (UserDb db, User updateuser, int id) =>
 {
     var user = await db.Users.FindAsync(id);
     if (user is null) return Results.NotFound();
@@ -58,7 +63,7 @@ app.MapPut(UsersEnpoint + "/{id}", async (UserDb db, User updateuser, int id) =>
 });
 
 // DELETE: /users/{id}
-app.MapDelete(UsersEnpoint + "/{id}", async (UserDb db, int id) => {
+users.MapDelete("/{id}", async (UserDb db, int id) => {
     var user = await db.Users.FindAsync(id);
     if (user is null) {
         return Results.NotFound();
