@@ -67,7 +67,7 @@ dotnet ef database update
 Now, you can run the project. Execute the following command:
 
 ```bash
-dotnet run
+dotnet run --project src/
 ```
 
 The application will start, and you should see output indicating that it's running. By default, the application runs on `http://localhost:5155`.
@@ -98,6 +98,14 @@ curl -X POST http://localhost:5155/users \
     "birthdate": "1990-01-01",
     "active": true
 }'
+```
+
+## Step 8 (Optional): Run the Tests
+
+You can run the project of the project. Execute the following command:
+
+```bash
+dotnet test tests/
 ```
 
 ## API Documentation
